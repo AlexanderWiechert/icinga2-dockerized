@@ -11,7 +11,7 @@ RUN apt-get update && \
   echo "deb https://packages.icinga.com/ubuntu icinga-$DIST main" > /etc/apt/sources.list.d/$DIST-icinga.list && \
   echo "deb-src https://packages.icinga.com/ubuntu icinga-$DIST main" >> /etc/apt/sources.list.d/$DIST-icinga.list && \
   apt-get update && \
-  apt-get -y install icinga2 icinga2-ido-mysql monitoring-plugins && \
+  apt-get -y install nano net-tools icinga2 icinga2-ido-mysql icingaweb2 icingacli icingaweb2-module-pnp icingaweb2-module-statusmap monitoring-plugins && \
   apt-get autoremove -y  && \
   apt-get autoclean -y  && \
   rm -rf /var/lib/apt/lists/*
