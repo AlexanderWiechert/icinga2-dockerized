@@ -1,4 +1,5 @@
 FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ="Europe/Berlin"
 
 RUN apt-get update && \
@@ -10,7 +11,13 @@ RUN apt-get update && \
   echo "deb https://packages.icinga.com/ubuntu icinga-$DIST main" > /etc/apt/sources.list.d/$DIST-icinga.list && \
   echo "deb-src https://packages.icinga.com/ubuntu icinga-$DIST main" >> /etc/apt/sources.list.d/$DIST-icinga.list && \
   apt-get update && \
-  apt-get -y install icinga2
+  apt-get -y install icinga2 icinga2-ido-mysql monitoring-plugins && \
+  apt-get autoremove -y  && \
+  apt-get autoclean -y  && \
+  rm -rf /var/lib/apt/lists/*
 
 
-CMD ['/bin/bash']
+COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+#CMD /bin/bash
