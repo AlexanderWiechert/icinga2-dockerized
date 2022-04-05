@@ -16,8 +16,14 @@ RUN apt-get update && \
   apt-get autoclean -y  && \
   rm -rf /var/lib/apt/lists/*
 
+COPY data/ /etc/icingaweb2/
+RUN chown www-data:icingaweb2 /etc/icingaweb2/enabledModules/
+
+EXPOSE 80
 
 COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+#ENTRYPOINT ["entrypoint.sh"]
 #CMD /bin/bash
+
+CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]

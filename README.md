@@ -10,6 +10,7 @@ $ docker run --detach --name mariadb \
 --env MARIADB_USER=icinga \
 --env MARIADB_PASSWORD=password \
 --env MARIADB_ROOT_PASSWORD=root  \
+- v $(pwd)/mysql:/var/lib/mysql
 -p 3306:3306 \
 mariadb:latest
 ```
@@ -36,3 +37,28 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> 
 
 ```
+
+## Config Files location
+
+
+Login to Icinga Web 2
+
+Successfully connected to existing database "icingaweb2"...
+Database schema already exists...
+Login "icingaweb2" already exists...
+Required privileges were already granted to login "icingaweb2".
+The database has been fully set up!
+
+General configuration has been successfully written to: /etc/icingaweb2/config.ini
+
+Authentication configuration has been successfully written to: /etc/icingaweb2/authentication.ini
+Account "admin" has been successfully created.
+Account "admin" has been successfully defined as initial administrator.
+
+User Group Backend configuration has been successfully written to: /etc/icingaweb2/groups.ini
+Account "admin" has been successfully added as member to user group "Administrators".
+
+Resource configuration has been successfully written to: /etc/icingaweb2/resources.ini
+
+Monitoring backend configuration has been successfully written to: /etc/icingaweb2/modules/monitoring/backends.ini
+Resource configuration has been successfully updated: /etc/icingaweb2/resources.ini
