@@ -62,3 +62,11 @@ Resource configuration has been successfully written to: /etc/icingaweb2/resourc
 
 Monitoring backend configuration has been successfully written to: /etc/icingaweb2/modules/monitoring/backends.ini
 Resource configuration has been successfully updated: /etc/icingaweb2/resources.ini
+
+# Alexander Wiechert // Elastic2ls
+
+[Website](https://www.elastic2ls.com/)
+
+[Contact](info@elastic2ls.com)
+
+[License](https://github.com/AlexanderWiechert/.github/blob/main/LICENSE)
